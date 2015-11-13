@@ -37,6 +37,7 @@ function getCustomerList() {
     return [
         {
             customerId: "ALFKI",
+            region: "WA",
             orders: [
             {
                 orderId: 10702,
@@ -56,6 +57,7 @@ function getCustomerList() {
         },
         {
             customerId: "ANATR",
+            region: "WA",
             orders: [
             {
                 orderId: 10308,
@@ -80,6 +82,7 @@ function getCustomerList() {
         },
         {
             customerId: "ANTON",
+            region: "WA",
             orders: [
             {
                 orderId: 10259,
@@ -104,6 +107,7 @@ function getCustomerList() {
         },
         {
             customerId: "AROUT",
+            region: "CA",
             orders: [
             {
                 orderId: 10355,
