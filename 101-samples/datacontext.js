@@ -4,31 +4,36 @@ function getProductList() {
             id: 1,
             productName: "Chai",
             category: "Beverages",
-            unitPrice: "18.0000"
+            unitPrice: "18.0000",
+            unitsInStock: 200
         },
         {
             id: 2,
             productName: "Chang",
             category: "Beverages",
-            unitPrice: "19.0000"
+            unitPrice: "19.0000",
+            unitsInStock: 0
         },
         {
             id: 3,
             productName: "Aniseed Syrup",
             category: "Condiments",
-            unitPrice: "10.0000"
+            unitPrice: "10.0000",
+            unitsInStock: 50
         },
         {
             id: 4,
             productName: "Chef Anton's Cajun Seasoning",
             category: "Condiments",
-            unitPrice: "22.0000"
+            unitPrice: "22.0000",
+            unitsInStock: 10
         },
         {
             id: 5,
             productName: "Chef Anton's Gumbo Mix",
             category: "Condiments",
-            unitPrice: "21.3500"
+            unitPrice: "21.3500",
+            unitsInStock: 100
         },
     ]
 }
