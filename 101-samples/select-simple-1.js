@@ -3,7 +3,7 @@
   
     var numsPlusOne = function(n){
         return n + 1;
-    }
+    };
     
     var result = jLinq.fromArray(numbers).select(numsPlusOne).toArray();
 
