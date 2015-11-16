@@ -5,7 +5,7 @@
     
     var result = jL.fromArray(products)
                    .select(function(p){
-                       return p.productName;
+                       return p.ProductName;
                    }).toArray();
 
     result.forEach(function(item) {

@@ -2,18 +2,18 @@
     var customers = getCustomerList(); // function getCustomerList is in the file datacontext.js
       
     var collectionSelector = function (customer) {
-        return jL.fromArray(customer.orders)
+        return jL.fromArray(customer.Orders)
                  .where(function(order) { 
-                     return order.total >= 2000; 
+                     return order.Total >= 2000; 
                  })
                  .toArray();
     };
   
     var resultSelector = function(customer, order) {
         return {
-            customerId: customer.customerId, 
-            orderId: order.orderId,
-            total: order.total
+            customerId: customer.CustomerId, 
+            orderId: order.OrderId,
+            total: order.Total
         };
     };
 

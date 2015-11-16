@@ -4,17 +4,17 @@
     var cutoffDate = new Date(1997, 0, 1); 
   
     var collectionSelector = function (customer) {
-        return jL.fromArray(customer.orders)
+        return jL.fromArray(customer.Orders)
                  .where(function(order) { 
-                     return order.orderDate.getTime() >= cutoffDate.getTime(); 
+                     return order.OrderDate.getTime() >= cutoffDate.getTime(); 
                  })
                  .toArray();
     };
   
     var resultSelector = function(customer, order) {
         return {
-            customerId: customer.customerId, 
-            orderId: order.orderId
+            customerId: customer.CustomerId, 
+            orderId: order.OrderId
         };
     };
 

@@ -4,9 +4,9 @@
     var result = jL.fromArray(products)
                    .select(function(p){
                        return { 
-                           productName: p.productName, 
-                           category: p.category,
-                           unitPrice: p.unitPrice
+                           productName: p.ProductName, 
+                           category: p.Category,
+                           unitPrice: p.UnitPrice
                        };
                    }).toArray();
 

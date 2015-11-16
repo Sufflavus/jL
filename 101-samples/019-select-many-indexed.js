@@ -2,10 +2,10 @@
     var customers = getCustomerList(); // function getCustomerList is in the file datacontext.js
   
     var collectionSelector = function (customer, customerIndex) {
-        return jL.fromArray(customer.orders)
+        return jL.fromArray(customer.Orders)
                  .select(function(order) { 
                      return "Customer #" + (customerIndex + 1) + 
-                            " has an order with OrderID " + order.orderId; 
+                            " has an order with OrderID " + order.OrderId; 
                  })
                  .toArray();
     };

@@ -1,5 +1,6 @@
 function getProductList() {
-    return [
+    return products;
+    /*return [
         {
             id: 1,
             productName: "Chai",
@@ -35,11 +36,12 @@ function getProductList() {
             unitPrice: "21.3500",
             unitsInStock: 100
         },
-    ]
+    ];*/
 }
 
 function getCustomerList() {
-    return [
+    return customers;    
+    /*return [
         {
             customerId: "ALFKI",
             companyName: "Lazy K Kountry Store",
@@ -169,5 +171,5 @@ function getCustomerList() {
                 orderDate: new Date(1996, 9, 16)
             }]
         }
-    ];
+    ];*/
 }
