@@ -42,6 +42,7 @@ function getCustomerList() {
     return [
         {
             customerId: "ALFKI",
+            companyName: "Lazy K Kountry Store",
             region: "WA",
             orders: [
             {
@@ -62,6 +63,7 @@ function getCustomerList() {
         },
         {
             customerId: "ANATR",
+            companyName: "Trail's Head Gourmet Provisioners",
             region: "WA",
             orders: [
             {
@@ -88,6 +90,7 @@ function getCustomerList() {
         {
             customerId: "ANTON",
             region: "WA",
+            companyName: "Trail's Head Gourmet Provisioners",
             orders: [
             {
                 orderId: 10259,
@@ -112,6 +115,7 @@ function getCustomerList() {
         },
         {
             customerId: "AROUT",
+            companyName: "White Clover Markets",
             region: "CA",
             orders: [
             {
