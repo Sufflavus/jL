@@ -1,15 +1,14 @@
 (function() {
     var products = getProductList(); // function getProductList is in the file datacontext.js
     
-    var productInfos = function(p){
-        return { 
-            productName: p.productName, 
-            category: p.category,
-            unitPrice: p.unitPrice
-        };
-    }
-
-    var result = jLinq.fromArray(products).select(productInfos).toArray();
+    var result = jL.fromArray(products)
+                   .select(function(p){
+                       return { 
+                           productName: p.productName, 
+                           category: p.category,
+                           unitPrice: p.unitPrice
+                       };
+                   }).toArray();
 
     console.log("Product Info:"); 
     

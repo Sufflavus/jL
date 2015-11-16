@@ -1,15 +1,18 @@
-var jLinq = (function() {
-    function JLinq(source){
+// @author Sufflavus https://github.com/Sufflavus
+// @version 1.1.0 
+
+var jL = (function() {
+    function JL(source){
         this.__source = source.slice();
     }
 
-    JLinq.prototype.select = function(predicate){
+    JL.prototype.select = function(predicate){
         // TODO: check if predicate is a function
         this.__source = this.__source.map(predicate);
         return this;
     };
 
-    JLinq.prototype.selectMany = function(collectionSelector, resultSelector){
+    JL.prototype.selectMany = function(collectionSelector, resultSelector){
         // TODO: check if collectionSelector and resultSelector are functions
         
         var temp = [];
@@ -37,20 +40,20 @@ var jLinq = (function() {
         return this;
     };
 
-    JLinq.prototype.where = function(predicate){
+    JL.prototype.where = function(predicate){
         // TODO: check if predicate is a function
         this.__source = this.__source.filter(predicate);
         return this;
     };
 
-    JLinq.prototype.toArray = function(){
+    JL.prototype.toArray = function(){
         return this.__source.slice();
     };
 
     return {
         fromArray:  function(array){
             // TODO: check if it's an array
-            return new JLinq(array);
+            return new JL(array);
         }
     };
 })();

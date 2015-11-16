@@ -9,7 +9,13 @@
         };
     }
 
-    var result = jLinq.fromArray(numbers).select(digitOddEvens).toArray();
+    var result = jL.fromArray(numbers)
+                   .select(function(n){
+                       return { 
+                           digit: strings[n], 
+                           even: (n % 2 === 0) 
+                       };
+                   }).toArray();
 
     result.forEach(function(item) {
         console.log("The digit " + item.digit + " is " + (item.even ? "even" : "odd"));

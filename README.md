@@ -1,2 +1,2 @@
-# jLinq
+# jL
 LINQ for JavaScript

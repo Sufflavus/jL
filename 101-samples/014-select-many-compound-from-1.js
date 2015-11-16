@@ -3,11 +3,11 @@
     var numbersB = [1, 3, 5, 7, 8]; 
   
     var collectionSelector = function (a) {
-        return jLinq.fromArray(numbersB)
-                    .where(function(b) { 
-                        return a < b; 
-                    })
-                    .toArray();
+        return jL.fromArray(numbersB)
+                 .where(function(b) { 
+                     return a < b; 
+                 })
+                 .toArray();
     };
   
     var resultSelector = function(a, b) {
@@ -17,9 +17,9 @@
         };
     };
 
-    var result = jLinq.fromArray(numbersA)
-                      .selectMany(collectionSelector, resultSelector)
-                      .toArray();
+    var result = jL.fromArray(numbersA)
+                   .selectMany(collectionSelector, resultSelector)
+                   .toArray();
 
     console.log("Pairs where a < b:");
 
