@@ -1,27 +1,21 @@
 (function() {    
     var customers = getCustomerList(); // function getCustomerList is in the file datacontext.js
-      
-    var collectionSelector = function (customer) {
-        return jL.fromArray(customer.Orders)
-                 .where(function(order) { 
-                     return order.Total >= 2000; 
-                 })
-                 .toArray();
-    };
-  
-    var resultSelector = function(customer, order) {
-        return {
-            customerId: customer.CustomerId, 
-            orderId: order.OrderId,
-            total: order.Total
-        };
-    };
 
-    var result = jL.fromArray(customers)
-                   .selectMany(collectionSelector, resultSelector)
+    var orders = jL.fromArray(customers)
+                   .selectMany(function(customer) {
+                        return customer.Orders.filter(function(order) {
+                            return order.Total >= 2000;
+                        });
+                    }, function(customer, order) {
+                        return {
+                            customerId: customer.CustomerId, 
+                            orderId: order.OrderId,
+                            total: order.Total
+                        };
+                    })
                    .toArray();
 
-    result.forEach(function(item) {
+    orders.forEach(function(item) {
         console.log("CustomerID=" + item.customerId + " OrderID=" + item.orderId + " Total=" + item.total);
     });
 })();

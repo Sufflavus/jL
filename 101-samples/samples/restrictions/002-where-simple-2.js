@@ -1,14 +1,14 @@
 (function() {
     var products = getProductList(); 
 
-    var result = jL.fromArray(products)
+    var soldOutProducts = jL.fromArray(products)
                    .where(function(p){
-                       return p.unitsInStock === 0;
+                       return p.UnitsInStock === 0;
                    }).toArray();
 
     console.log("Sold out products:"); 
 
-    result.forEach(function(item) {
-        console.log(item.productName + " is sold out!");
+    soldOutProducts.forEach(function(item) {
+        console.log(item.ProductName + " is sold out!");
     });
 })();

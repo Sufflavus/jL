@@ -6,11 +6,11 @@
 
 </head>
 <body>
-    <h1>101 LINQ Samples in JavaScript (using jLinq)</h1>
+    <h1>101 LINQ Samples in JavaScript (using jL)</h1>
     <h2>Run the Sample</h2>
     <ol>
         <li>
-            Comment or uncomment the desired samples initialisation in the source code of this page
+            Comment or uncomment the desired samples' initialisation in the source code of this page
         </li>
         <li>
             Press Ctrl + F5
@@ -24,35 +24,145 @@
     <script src="../src/jl.js"></script>
 
     <!-- File with tests data -->
-    <script src="products.json.js"></script>
-    <script src="customers.json.js"></script>
-    <script src="datacontext.js"></script>
+    <script src="data/products.json.js"></script>
+    <script src="data/customers.json.js"></script>
+    <script src="data/datacontext.js"></script>
 
     <!-- Files with samples -->
 
     <!-- Restriction Operators -->
-    <script src="001-where-simple-1.js"></script>
-    <script src="002-where-simple-2.js"></script>
+    <!-- <script src="samples/restrictions/001-where-simple-1.js"></script>
+    <script src="samples/restrictions/002-where-simple-2.js"></script>
+    <script src="samples/restrictions/003-where-simple-3.js"></script>
+    <script src="samples/restrictions/004-where-drilldown.js"></script>
+    <script src="samples/restrictions/005-where-indexed.js"></script> -->
 
     <!-- Projection Operators -->
-    <script src="006-select-simple-1.js"></script>
-    <script src="007-select-simple-2.js"></script>
+    <!-- <script src="samples/projections/006-select-simple-1.js"></script>
+    <script src="samples/projections/007-select-simple-2.js"></script>
 
-    <script src="008-select-transformation.js"></script>
+    <script src="samples/projections/008-select-transformation.js"></script>
 
-    <script src="009-select-anonymous-types-1.js"></script>
-    <script src="010-select-anonymous-types-2.js"></script>
-    <script src="011-select-anonymous-types-3.js"></script>
+    <script src="samples/projections/009-select-anonymous-types-1.js"></script>
+    <script src="samples/projections/010-select-anonymous-types-2.js"></script>
+    <script src="samples/projections/011-select-anonymous-types-3.js"></script>
 
-    <script src="012-select-indexed.js"></script>
-    <script src="013-select-filtered.js"></script>
+    <script src="samples/projections/012-select-indexed.js"></script>
+    <script src="samples/projections/013-select-filtered.js"></script>
 
-    <script src="014-select-many-compound-from-1.js"></script>
-    <script src="015-select-many-compound-from-2.js"></script>
-    <script src="016-select-many-compound-from-3.js"></script>
+    <script src="samples/projections/014-select-many-compound-from-1.js"></script>
+    <script src="samples/projections/015-select-many-compound-from-2.js"></script>
+    <script src="samples/projections/016-select-many-compound-from-3.js"></script>
 
-    <script src="017-select-many-from-assignment.js"></script>
-    <script src="018-select-many-multiple-from.js"></script>
-    <script src="019-select-many-indexed.js"></script>
+    <script src="samples/projections/017-select-many-from-assignment.js"></script>
+    <script src="samples/projections/018-select-many-multiple-from.js"></script>
+    <script src="samples/projections/019-select-many-indexed.js"></script> -->
+
+    <!-- Partitioning Operators -->
+    <script src="samples/partitioning/020-take-simple.js"></script>
+    <script src="samples/partitioning/021-take-nested.js"></script>
+    <!--<script src="samples/partitioning/022-skip-simple.js"></script>
+    <script src="samples/partitioning/023-skip-nested.js"></script>
+    <script src="samples/partitioning/024-take-while-simple.js"></script>
+    <script src="samples/partitioning/025-take-while-indexed.js"></script>
+    <script src="samples/partitioning/026-skip-while-simple.js"></script>
+    <script src="samples/partitioning/027-skip-while-indexed.js"></script>-->
+
+    <!-- Ordering Operators -->
+    <!--<script src="samples/ordering/028-order-by-simple-1.js"></script>
+    <script src="samples/ordering/029-order-by-simple-2.js"></script>
+    <script src="samples/ordering/030-order-by-simple-3.js"></script>
+    <script src="samples/ordering/031-order-by-comparer.js"></script>
+    <script src="samples/ordering/032-order-by-descending-simple-1.js"></script>
+    <script src="samples/ordering/033-order-by-descending-simple-2.js"></script>
+    <script src="samples/ordering/034-order-by-descending-comparer.js"></script>
+    <script src="samples/ordering/035-then-by-simple.js"></script>
+    <script src="samples/ordering/036-then-by-comparer.js"></script>
+    <script src="samples/ordering/037-then-by-descending-simple.js"></script>
+    <script src="samples/ordering/038-then-by-descending-comparer.js"></script>
+    <script src="samples/ordering/039-reverse.js"></script>-->
+
+    <!-- Grouping Operators -->
+    <!-- <script src="samples/grouping/040-group-by-simple-1.js"></script>
+    <script src="samples/grouping/041-group-by-simple-2.js"></script>
+    <script src="samples/grouping/042-group-by-simple-3.js"></script>
+    <script src="samples/grouping/043-group-by-nested.js"></script>
+    <script src="samples/grouping/044-group-by-comparer.js"></script>
+    <script src="samples/grouping/045-group-by-comparer-mapped.js"></script>-->
+
+    <!-- Set Operators -->
+    <!-- <script src="samples/setoperations/046-distinct-1.js"></script>
+    <script src="samples/setoperations/047-distinct-2.js"></script>
+    <script src="samples/setoperations/048-union-1.js"></script>
+    <script src="samples/setoperations/049-union-2.js"></script>
+    <script src="samples/setoperations/050-intersect-1.js"></script>
+    <script src="samples/setoperations/051-intersect-2.js"></script>
+    <script src="samples/setoperations/052-except-1.js"></script>
+    <script src="samples/setoperations/053-except-2.js"></script>-->
+
+    <!-- Conversion Operators -->
+    <!-- <script src="samples/conversionoperations/054-to-array.js"></script>
+    <script src="samples/conversionoperations/055-to-list.js"></script>
+    <script src="samples/conversionoperations/056-to-dictionary.js"></script>
+    <script src="samples/conversionoperations/057-of-type.js"></script>-->
+
+    <!-- Element Operators -->
+    <!-- <script src="samples/elementoperations/058-first-simple.js"></script>
+    <script src="samples/elementoperations/059-first-condition.js"></script>
+    <script src="samples/elementoperations/061-first-or-default-simple.js"></script>
+    <script src="samples/elementoperations/062-first-or-default-condition.js"></script>
+    <script src="samples/elementoperations/064-element-at.js"></script>-->
+
+    <!-- Generation Operators -->
+    <!-- <script src="samples/elementoperations/065-range.js"></script>
+    <script src="samples/elementoperations/066-repeat.js"></script>-->
+
+    <!-- Quantifiers -->
+    <!-- <script src="samples/quantifiers/067-any-simple.js"></script>
+    <script src="samples/quantifiers/069-any-grouped.js"></script>
+    <script src="samples/quantifiers/070-all-simple.js"></script>
+    <script src="samples/quantifiers/072-all-grouped.js"></script>-->
+
+    <!-- Aggregate Operators -->
+    <!-- <script src="samples/aggregateoperations/073-count-simple.js"></script>
+    <script src="samples/aggregateoperations/074-count-conditional.js"></script>
+    <script src="samples/aggregateoperations/076-count-nested.js"></script>
+    <script src="samples/aggregateoperations/077-count-grouped.js"></script>
+    <script src="samples/aggregateoperations/078-sum-simple.js"></script>
+    <script src="samples/aggregateoperations/079-sum-projection.js"></script>
+    <script src="samples/aggregateoperations/080-sum-grouped.js"></script>
+    <script src="samples/aggregateoperations/081-min-simple.js"></script>
+    <script src="samples/aggregateoperations/082-min-projection.js"></script>
+    <script src="samples/aggregateoperations/083-min-grouped.js"></script>
+    <script src="samples/aggregateoperations/084-min-elements.js"></script>
+    <script src="samples/aggregateoperations/085-max-simple.js"></script>
+    <script src="samples/aggregateoperations/086-max-projection.js"></script>
+    <script src="samples/aggregateoperations/087-max-grouped.js"></script>
+    <script src="samples/aggregateoperations/088-max-elements.js"></script>
+    <script src="samples/aggregateoperations/089-average-simple.js"></script>
+    <script src="samples/aggregateoperations/090-average-projection.js"></script>
+    <script src="samples/aggregateoperations/091-average-grouped.js"></script>
+    <script src="samples/aggregateoperations/092-aggregate-simple.js"></script>
+    <script src="samples/aggregateoperations/093-aggregate-seed.js"></script>-->
+
+    <!-- Miscellaneous Operators -->
+    <!-- <script src="samples/miscellaneousoperations/094-concat-1.js"></script>
+    <script src="samples/miscellaneousoperations/095-concat-2.js"></script>
+    <script src="samples/miscellaneousoperations/096-equal-all-1.js"></script>
+    <script src="samples/miscellaneousoperations/097-equal-all-2.js"></script> -->
+
+    <!-- Custom Sequence Operators -->
+    <!-- <script src="samples/customsequenceoperators/098-combine.js"></script>-->
+
+    <!-- Query Execution -->
+    <!-- <script src="samples/queryexecution/099-deferred-execution.js"></script>
+    <script src="samples/queryexecution/100-immediate-execution.js"></script>
+    <script src="samples/queryexecution/101-query-reuse.js"></script> -->
+
+    <!-- Join Operators -->
+    <!-- <script src="samples/joinoperators/102-cross-join.js"></script>
+    <script src="samples/joinoperators/103-group-join.js"></script>
+    <script src="samples/joinoperators/104-cross-join-with-group-join.js"></script>
+    <script src="samples/joinoperators/105-left-outer-join.js"></script> -->
 </body>
 </html>

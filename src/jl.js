@@ -14,35 +14,39 @@ var jL = (function() {
 
     JL.prototype.selectMany = function(collectionSelector, resultSelector){
         // TODO: check if collectionSelector and resultSelector are functions
-        
-        var temp = [];
-        this.__source.forEach(function (sourceItem, index) {
-            temp.push(
-                { 
-                    sourceItem: sourceItem, 
-                    collection: collectionSelector(sourceItem, index)
+        this.__source = this.__source.map(function (sourceItem, index) {
+            return { 
+                key: sourceItem, 
+                values: collectionSelector(sourceItem, index)
+            };
+        }).reduce(function(result, item) {
+            if(resultSelector){
+                var resultCollection = item.values.map(function(value){
+                    return resultSelector(item.key, value);
                 });
-        });
-        
-        var result = [];
-        temp.forEach(function (item) {
-            if(resultSelector) {
-                var resultCollection = item.collection.map(function(collectionItem){
-                    return resultSelector(item.sourceItem, collectionItem);
-                });
-                result = result.concat(resultCollection);
-            } else {
-                result = result.concat(item.collection);
+                return result.concat(resultCollection);
             }
-        });
-
-        this.__source = result;
+            return result.concat(item.values);
+        },[]);
+        
         return this;
     };
 
     JL.prototype.where = function(predicate){
         // TODO: check if predicate is a function
         this.__source = this.__source.filter(predicate);
+        return this;
+    };
+
+    JL.prototype.take = function(count){
+        // TODO: check if count is a integer
+
+        if(count < 0) {
+            this.__source = [];
+            return this;
+        }
+
+        this.__source = this.__source.slice(0, count);
         return this;
     };
 

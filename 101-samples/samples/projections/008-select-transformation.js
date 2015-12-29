@@ -4,12 +4,12 @@
 
     console.log("Number strings:");
 
-    var result = jL.fromArray(numbers)
-                   .select(function(n){
-                       return strings[n];
-                   }).toArray();
+    var textNums = jL.fromArray(numbers)
+                     .select(function(n){
+                         return strings[n];
+                     }).toArray();
 
-    result.forEach(function(item) {
+    textNums.forEach(function(item) {
         console.log(item);
     });
 })();
