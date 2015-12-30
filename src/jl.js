@@ -41,12 +41,52 @@ var jL = (function() {
     JL.prototype.take = function(count){
         // TODO: check if count is a integer
 
-        if(count < 0) {
+        if(count <= 0) {
             this.__source = [];
             return this;
         }
 
         this.__source = this.__source.slice(0, count);
+        return this;
+    };
+
+    JL.prototype.takeWhile = function(predicate){
+        // TODO: check if predicate is a function
+        
+        var stopIndex = this.__source.length;
+        this.__source.some(function(n, index) {
+            return predicate(n, index) ? false : ((stopIndex = index), true);
+        });
+
+        this.__source = this.__source.slice(0, stopIndex);
+        return this;
+    };
+
+    JL.prototype.skip = function(count){
+        // TODO: check if count is a integer
+
+        if(count >= this.__source.length) {
+            this.__source = [];
+            return this;
+        }
+
+        if(count <= 0) {
+            return this;
+        }
+
+        this.__source = this.__source.slice(count);
+        return this;
+    };
+
+    JL.prototype.skipWhile = function(predicate){
+        // TODO: check if predicate is a function
+        
+        var startIndex = this.__source.length;
+        this.__source.some(function(n, index) {
+            return predicate(n, index) ? false : ((startIndex = index), true);
+        });
+
+        this.__source = this.__source.slice(startIndex);
         return this;
     };
 
