@@ -6,6 +6,27 @@ var jL = (function() {
         this.__source = source.slice();
     }
 
+    JL.prototype.all = function(predicate){
+        // TODO: check if predicate is a function
+        return this.__source.every(predicate);
+    };
+
+    JL.prototype.any = function(predicate){
+        // TODO: check if predicate is a function
+        if(!predicate) {
+            return this.__source.length > 0;
+        }
+        return this.__source.some(predicate);
+    };
+
+    JL.prototype.count = function(predicate){
+        // TODO: check if predicate is a function
+        if(!predicate) {
+            return this.__source.length ;
+        }
+        return this.__source.filter(predicate).length;
+    };
+
     JL.prototype.select = function(predicate){
         // TODO: check if predicate is a function
         this.__source = this.__source.map(predicate);
