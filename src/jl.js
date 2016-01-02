@@ -8,6 +8,7 @@ var jL = (function() {
 
     JL.prototype.all = function(predicate){
         // TODO: check if predicate is a function
+        
         return this.__source.every(predicate);
     };
 
