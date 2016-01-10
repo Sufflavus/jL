@@ -37,19 +37,41 @@ var jL = (function() {
 
     JL.prototype.concat = function(secondArray){
         // TODO: check if secondArray is an array
-        if(!predicate) {
-            return this.__source.length ;
+        if(secondArray) {
+            this.__source = this.__source.concat(secondArray);
         }
-        this.__source = this.__source.concat(secondArray);
         return this;
+    };
+
+    JL.prototype.contains = function(item, comparer){
+        if(!comparer) {
+            return this.__source.indexOf(item) >= 0;
+        }
+
+        // TODO: check if comparer is a function
+        for(var i = 0, length = this.__source.length; i < l; i++) {
+            if(comparer(this.__source[i]) === comparer(item)) {
+                return true;
+            }
+        }
+        
+        return false;
     };
 
     JL.prototype.count = function(predicate){
         // TODO: check if predicate is a function
         if(!predicate) {
-            return this.__source.length ;
+            return this.__source.length;
         }
         return this.__source.filter(predicate).length;
+    };
+
+    JL.prototype.defaultIfEmpty = function(defaultValue) {
+        if(!this.__source.length) {
+            this.__source = [defaultValue];
+        }
+        
+        return this;
     };
 
     JL.prototype.select = function(predicate){
@@ -58,7 +80,7 @@ var jL = (function() {
         return this;
     };
 
-    JL.prototype.selectMany = function(collectionSelector, resultSelector){
+    JL.prototype.selectMany = function(collectionSelector, resultSelector) {
         // TODO: check if collectionSelector and resultSelector are functions
         this.__source = this.__source.map(function (sourceItem, index) {
             return { 
