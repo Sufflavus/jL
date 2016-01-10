@@ -20,6 +20,30 @@ var jL = (function() {
         return this.__source.some(predicate);
     };
 
+    JL.prototype.average = function(predicate){
+        // TODO: check if predicate is a function
+        if(!this.__source.length) {
+            return 0;
+        }
+
+        // TODO: check if all items in array are numbers
+
+        var averageNum = this.__source.reduce(function(sum, number) {
+            return sum + (predicate ? predicate(number) : number);
+        }, 0) / this.__source.length; 
+
+        return averageNum;
+    };
+
+    JL.prototype.concat = function(secondArray){
+        // TODO: check if secondArray is an array
+        if(!predicate) {
+            return this.__source.length ;
+        }
+        this.__source = this.__source.concat(secondArray);
+        return this;
+    };
+
     JL.prototype.count = function(predicate){
         // TODO: check if predicate is a function
         if(!predicate) {
