@@ -6,13 +6,13 @@ var jL = (function() {
         this.__source = source.slice();
     }
 
-    JL.prototype.all = function(predicate){
+    JL.prototype.all = function(predicate) {
         // TODO: check if predicate is a function
         
         return this.__source.every(predicate);
     };
 
-    JL.prototype.any = function(predicate){
+    JL.prototype.any = function(predicate) {
         // TODO: check if predicate is a function
         if(!predicate) {
             return this.__source.length > 0;
@@ -20,7 +20,7 @@ var jL = (function() {
         return this.__source.some(predicate);
     };
 
-    JL.prototype.average = function(predicate){
+    JL.prototype.average = function(predicate) {
         // TODO: check if predicate is a function
         if(!this.__source.length) {
             return 0;
@@ -35,7 +35,7 @@ var jL = (function() {
         return averageNum;
     };
 
-    JL.prototype.concat = function(secondArray){
+    JL.prototype.concat = function(secondArray) {
         // TODO: check if secondArray is an array
         if(secondArray) {
             this.__source = this.__source.concat(secondArray);
@@ -43,7 +43,7 @@ var jL = (function() {
         return this;
     };
 
-    JL.prototype.contains = function(item, comparer){
+    JL.prototype.contains = function(item, comparer) {
         if(!comparer) {
             return this.__source.indexOf(item) >= 0;
         }
@@ -58,7 +58,7 @@ var jL = (function() {
         return false;
     };
 
-    JL.prototype.count = function(predicate){
+    JL.prototype.count = function(predicate) {
         // TODO: check if predicate is a function
         if(!predicate) {
             return this.__source.length;
@@ -74,7 +74,35 @@ var jL = (function() {
         return this;
     };
 
-    JL.prototype.select = function(predicate){
+    JL.prototype.distinct = function(comparer) {
+        if(!comparer) {
+            this.__source = this.__source.filter(function(item, index, array) {
+                return array.indexOf(item) === index;
+            });
+        } else {
+            // TODO: check if comparer is a function
+            this.__source = this.__source.map(comparer).filter(function(item, index, array) {
+                return array.indexOf(item) === index;
+            });
+        }
+
+        return this;
+    };
+
+    JL.prototype.elementAt = function(index) {
+        // TODO: check if index is a number
+        return this.__source[index];
+    };
+
+    JL.prototype.except = function(second, comparer) {
+        
+    };
+
+    JL.prototype.first = function(predicate) {
+        
+    };
+
+    JL.prototype.select = function(predicate) {
         // TODO: check if predicate is a function
         this.__source = this.__source.map(predicate);
         return this;
@@ -100,13 +128,13 @@ var jL = (function() {
         return this;
     };
 
-    JL.prototype.where = function(predicate){
+    JL.prototype.where = function(predicate) {
         // TODO: check if predicate is a function
         this.__source = this.__source.filter(predicate);
         return this;
     };
 
-    JL.prototype.take = function(count){
+    JL.prototype.take = function(count) {
         // TODO: check if count is a integer
 
         if(count <= 0) {
@@ -118,7 +146,7 @@ var jL = (function() {
         return this;
     };
 
-    JL.prototype.takeWhile = function(predicate){
+    JL.prototype.takeWhile = function(predicate) {
         // TODO: check if predicate is a function
         
         var stopIndex = this.__source.length;
@@ -130,7 +158,7 @@ var jL = (function() {
         return this;
     };
 
-    JL.prototype.skip = function(count){
+    JL.prototype.skip = function(count) {
         // TODO: check if count is a integer
 
         if(count >= this.__source.length) {
@@ -146,7 +174,7 @@ var jL = (function() {
         return this;
     };
 
-    JL.prototype.skipWhile = function(predicate){
+    JL.prototype.skipWhile = function(predicate) {
         // TODO: check if predicate is a function
         
         var startIndex = this.__source.length;
@@ -158,12 +186,12 @@ var jL = (function() {
         return this;
     };
 
-    JL.prototype.toArray = function(){
+    JL.prototype.toArray = function() {
         return this.__source.slice();
     };
 
     return {
-        fromArray:  function(array){
+        fromArray:  function(array) {
             // TODO: check if it's an array
             return new JL(array);
         }
