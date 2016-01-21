@@ -95,7 +95,30 @@ var jL = (function() {
     };
 
     JL.prototype.except = function(second, comparer) {
-        
+        // TODO: check if second is a array
+        if(!second.length) {
+            if(!comparer) {
+                this.__source = this.__source.filter(function(n, index, array) {
+                    return array.indexOf(n) === index;
+                });
+                return this;
+            }
+            // TODO
+            return this;
+        }
+
+        // TODO: check if comparer is a function
+        if(!comparer) {
+            this.__source = this.__source.filter(function(n) {
+                return second.indexOf(n) === -1;
+            }).filter(function(n, index, array) {
+                return array.indexOf(n) === index;
+            });
+            return this;
+        }
+
+        // TODO
+        return this;
     };
 
     JL.prototype.first = function(predicate) {
