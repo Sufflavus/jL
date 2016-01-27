@@ -122,7 +122,20 @@ var jL = (function() {
     };
 
     JL.prototype.first = function(predicate) {
-        
+        if(!this.__source.length) {
+            throw("Sourse should contain at least 1 element");
+        }
+
+        if(!predicate) {
+            return this.__source[0];
+        }
+
+        // TODO: check if predicate is a function
+        for(var i = 0, length = this.__source.length; i < length; i++) {
+            if(predicate(this.__source[i])) {
+                return this.__source[i];
+            }
+        }
     };
 
     JL.prototype.select = function(predicate) {
