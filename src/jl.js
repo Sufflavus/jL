@@ -122,7 +122,9 @@ var jL = (function() {
     };
 
     JL.prototype.first = function(predicate) {
-        if(!this.__source.length) {
+        var length = this.__source.length;
+
+        if(!length) {
             throw("Sourse should contain at least 1 element");
         }
 
@@ -131,7 +133,38 @@ var jL = (function() {
         }
 
         // TODO: check if predicate is a function
-        for(var i = 0, length = this.__source.length; i < length; i++) {
+        for(var i = 0; i < length; i++) {
+            if(predicate(this.__source[i])) {
+                return this.__source[i];
+            }
+        }
+    };
+
+    JL.prototype.groupBy = function() {
+
+    };
+
+    JL.prototype.groupJoin = function() {
+
+    };
+
+    JL.prototype.intersect = function() {
+
+    };
+
+    JL.prototype.last = function(predicate) {
+        var length = this.__source.length;
+
+        if(!this.__source.length) {
+            throw("Sourse should contain at least 1 element");
+        }
+
+        if(!predicate) {
+            return this.__source[length - 1];
+        }
+
+        // TODO: check if predicate is a function
+        for(var i = length - 1; i >= 0; i--) {
             if(predicate(this.__source[i])) {
                 return this.__source[i];
             }
