@@ -171,6 +171,15 @@ var jL = (function() {
         }
     };
 
+    JL.prototype.max = function(selector) {
+        if(!selector) {
+            return Math.max.apply(null, this.__source);
+        }
+
+        // TODO: check if selector is a function
+        return Math.max.apply(null, this.__source.map(selector));
+    };
+
     JL.prototype.select = function(predicate) {
         // TODO: check if predicate is a function
         this.__source = this.__source.map(predicate);
