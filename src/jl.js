@@ -180,6 +180,15 @@ var jL = (function() {
         return Math.max.apply(null, this.__source.map(selector));
     };
 
+    JL.prototype.min = function(selector) {
+        if(!selector) {
+            return Math.min.apply(null, this.__source);
+        }
+
+        // TODO: check if selector is a function
+        return Math.min.apply(null, this.__source.map(selector));
+    };
+
     JL.prototype.select = function(predicate) {
         // TODO: check if predicate is a function
         this.__source = this.__source.map(predicate);
