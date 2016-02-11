@@ -189,6 +189,13 @@ var jL = (function() {
         return Math.min.apply(null, this.__source.map(selector));
     };
 
+    JL.prototype.orderBy = function(keySelector, comparer) {
+        // TODO: check if keySelector is a function
+        // TODO: check if comparer is a function
+        this.__source = this.__source.map(keySelector).sort(comparer);
+        return this;
+    };
+
     JL.prototype.select = function(predicate) {
         // TODO: check if predicate is a function
         this.__source = this.__source.map(predicate);
