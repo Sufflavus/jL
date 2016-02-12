@@ -196,6 +196,13 @@ var jL = (function() {
         return this;
     };
 
+    JL.prototype.orderByDescending = function(keySelector, comparer) {
+        // TODO: check if keySelector is a function
+        // TODO: check if comparer is a function
+        this.__source = this.__source.map(keySelector).sort(comparer).reverse();
+        return this;
+    };
+
     JL.prototype.select = function(predicate) {
         // TODO: check if predicate is a function
         this.__source = this.__source.map(predicate);
