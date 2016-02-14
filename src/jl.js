@@ -291,10 +291,23 @@ var jL = (function() {
         return this.__source.slice();
     };
 
+    function range(start, count) {
+        // TODO: validate start, count
+
+        var numbers = Array.apply(null, Array(count))
+            .map(function(element, index) {
+                return start + index;
+            }); 
+
+        return new JL(numbers);
+    }
+
     return {
         fromArray:  function(array) {
             // TODO: check if it's an array
             return new JL(array);
-        }
+        },
+
+        range: range
     };
 })();
