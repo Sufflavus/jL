@@ -302,6 +302,20 @@ var jL = (function() {
         return new JL(numbers);
     }
 
+    function repeat(element, count) {
+        if(count < 0) {
+            throw ("Count should be more are equal then 0");
+        }
+        // TODO: validate count
+
+        var collection = Array.apply(null, Array(count))
+            .map(function() {
+                return element;
+            }); 
+
+        return new JL(collection);
+    }
+
     return {
         fromArray:  function(array) {
             // TODO: check if it's an array
