@@ -203,6 +203,11 @@ var jL = (function() {
         return this;
     };
 
+    JL.prototype.reverse = function() {
+        this.__source = this.__source.reverse();
+        return this;
+    };
+
     JL.prototype.select = function(predicate) {
         // TODO: check if predicate is a function
         this.__source = this.__source.map(predicate);
@@ -306,6 +311,7 @@ var jL = (function() {
         if(count < 0) {
             throw ("Count should be more are equal then 0");
         }
+        
         // TODO: validate count
 
         var collection = Array.apply(null, Array(count))
@@ -322,6 +328,7 @@ var jL = (function() {
             return new JL(array);
         },
 
-        range: range
+        range: range,
+        repeat: repeat
     };
 })();
