@@ -234,6 +234,22 @@ var jL = (function() {
         return this;
     };
 
+    JL.prototype.sequenceEqual = function(second, comparer) {
+        // TODO: check if second is array
+        if(this.__source.length !== second.length) {
+            return false;
+        }
+
+        // TODO: check if comparer is a function
+        comparer = comparer || function(x, y) { return x === y; };
+        
+        var isEqual = this.__source.every(function(element, index) {
+            return comparer(element, second[index]);
+        });
+
+        return isEqual;
+    }
+
     JL.prototype.where = function(predicate) {
         // TODO: check if predicate is a function
         this.__source = this.__source.filter(predicate);
