@@ -242,13 +242,28 @@ var jL = (function() {
 
         // TODO: check if comparer is a function
         comparer = comparer || function(x, y) { return x === y; };
-        
+
         var isEqual = this.__source.every(function(element, index) {
             return comparer(element, second[index]);
         });
 
         return isEqual;
-    }
+    };
+
+    JL.prototype.single = function(predicate) {
+        if(!predicate && this.__source.length !== 1) {
+            if(this.__source.length !== 1) {
+                throw ("Source should contain one element");
+            }
+            return this.__source[0];
+        }
+        // TODO: check if predicate is a function
+        var filtered = this.__source.filter(predicate);
+        if(filtered.length !== 1) {
+            throw ("One element shoild satisfy the condition in predicate.");
+        }
+        return filtered[0];
+    };
 
     JL.prototype.where = function(predicate) {
         // TODO: check if predicate is a function
