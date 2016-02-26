@@ -265,6 +265,21 @@ var jL = (function() {
         return filtered[0];
     };
 
+    JL.prototype.skip = function(count) {
+        // TODO: check if count is a number
+        if(this.__source.length < count) {
+            this.__source = [];
+            return this;
+        }
+
+        if(count <= 0) {
+            return this;
+        }
+
+        this.__source = this.__source.slice(count);;
+        return this;
+    };
+
     JL.prototype.where = function(predicate) {
         // TODO: check if predicate is a function
         this.__source = this.__source.filter(predicate);
