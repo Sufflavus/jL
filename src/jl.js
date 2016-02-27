@@ -301,12 +301,16 @@ var jL = (function() {
     JL.prototype.takeWhile = function(predicate) {
         // TODO: check if predicate is a function
         
-        var stopIndex = this.__source.length;
-        this.__source.some(function(n, index) {
-            return predicate(n, index) ? false : ((stopIndex = index), true);
-        });
+        var result = [];
+        var length = this.__source.length;
+        var i = 0;
 
-        this.__source = this.__source.slice(0, stopIndex);
+        while (i < length && predicate(this.__source[i], i)) {
+            result.push(this.__source[i]);
+            i++;
+        }
+
+        this.__source = result;
         return this;
     };
 
