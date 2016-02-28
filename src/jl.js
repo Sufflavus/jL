@@ -332,13 +332,20 @@ var jL = (function() {
 
     JL.prototype.skipWhile = function(predicate) {
         // TODO: check if predicate is a function
-        
         var startIndex = this.__source.length;
         this.__source.some(function(n, index) {
             return predicate(n, index) ? false : ((startIndex = index), true);
         });
 
-        this.__source = this.__source.slice(startIndex);
+        var result = [];
+        var i = startIndex;
+
+        while (i < length) {
+            result.push(this.__source[i]);
+            i++;
+        }
+        
+        this.__source = result;
         return this;
     };
 
