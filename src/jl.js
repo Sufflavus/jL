@@ -349,6 +349,20 @@ var jL = (function() {
         return this;
     };
 
+    JL.prototype.sum = function(selector) {
+        if(selector) {
+            // TODO: check if selector is a function
+            return this.__source.reduce(function(sum, item) {
+                return sum + selector(item);
+            }, 0); 
+        }
+
+        return this.__source.reduce(function(sum, item) {
+            // TODO: check if item is number
+            return sum + item;
+        }, 0); 
+    };
+
     JL.prototype.toArray = function() {
         return this.__source.slice();
     };
