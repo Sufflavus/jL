@@ -393,6 +393,10 @@ var jL = (function() {
         return new JL(collection);
     }
 
+    function isFunction(value) {
+        return Object.prototype.toString.call(value) === "[object Function]";
+    }
+
     return {
         fromArray:  function(array) {
             // TODO: check if it's an array
