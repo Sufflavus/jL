@@ -7,21 +7,30 @@ var jL = (function() {
     }
 
     JL.prototype.all = function(predicate) {
-        // TODO: check if predicate is a function
-        
+        if(!isFunction(predicate)) {
+            throw("Predicate should be a function");
+        }
+
         return this.__source.every(predicate);
     };
 
     JL.prototype.any = function(predicate) {
-        // TODO: check if predicate is a function
         if(!predicate) {
             return this.__source.length > 0;
         }
+
+        if(!isFunction(predicate)) {
+            throw("Predicate should be a function");
+        }
+
         return this.__source.some(predicate);
     };
 
     JL.prototype.average = function(predicate) {
-        // TODO: check if predicate is a function
+        if(!isFunction(predicate)) {
+            throw("Predicate should be a function");
+        }
+
         if(!this.__source.length) {
             return 0;
         }
@@ -48,7 +57,10 @@ var jL = (function() {
             return this.__source.indexOf(item) >= 0;
         }
 
-        // TODO: check if comparer is a function
+        if(!isFunction(comparer)) {
+            throw("Comparer should be a function");
+        }
+
         for(var i = 0, length = this.__source.length; i < l; i++) {
             if(comparer(this.__source[i]) === comparer(item)) {
                 return true;
@@ -59,10 +71,14 @@ var jL = (function() {
     };
 
     JL.prototype.count = function(predicate) {
-        // TODO: check if predicate is a function
         if(!predicate) {
             return this.__source.length;
         }
+
+        if(!isFunction(predicate)) {
+            throw("Predicate should be a function");
+        }
+
         return this.__source.filter(predicate).length;
     };
 
@@ -80,7 +96,10 @@ var jL = (function() {
                 return array.indexOf(item) === index;
             });
         } else {
-            // TODO: check if comparer is a function
+            if(!isFunction(comparer)) {
+                throw("Comparer should be a function");
+            }
+
             this.__source = this.__source.map(comparer).filter(function(item, index, array) {
                 return array.indexOf(item) === index;
             });
@@ -107,7 +126,6 @@ var jL = (function() {
             return this;
         }
 
-        // TODO: check if comparer is a function
         if(!comparer) {
             this.__source = this.__source.filter(function(n) {
                 return second.indexOf(n) === -1;
@@ -115,6 +133,10 @@ var jL = (function() {
                 return array.indexOf(n) === index;
             });
             return this;
+        }
+
+        if(!isFunction(comparer)) {
+            throw("Comparer should be a function");
         }
 
         // TODO
@@ -132,7 +154,10 @@ var jL = (function() {
             return this.__source[0];
         }
 
-        // TODO: check if predicate is a function
+        if(!isFunction(predicate)) {
+            throw("Predicate should be a function");
+        }
+
         for(var i = 0; i < length; i++) {
             if(predicate(this.__source[i])) {
                 return this.__source[i];
@@ -163,7 +188,10 @@ var jL = (function() {
             return this.__source[length - 1];
         }
 
-        // TODO: check if predicate is a function
+        if(!isFunction(predicate)) {
+            throw("Predicate should be a function");
+        }
+
         for(var i = length - 1; i >= 0; i--) {
             if(predicate(this.__source[i])) {
                 return this.__source[i];
@@ -176,7 +204,10 @@ var jL = (function() {
             return Math.max.apply(null, this.__source);
         }
 
-        // TODO: check if selector is a function
+        if(!isFunction(selector)) {
+            throw("Selector should be a function");
+        }
+
         return Math.max.apply(null, this.__source.map(selector));
     };
 
@@ -185,20 +216,35 @@ var jL = (function() {
             return Math.min.apply(null, this.__source);
         }
 
-        // TODO: check if selector is a function
+        if(!isFunction(selector)) {
+            throw("Selector should be a function");
+        }
+
         return Math.min.apply(null, this.__source.map(selector));
     };
 
     JL.prototype.orderBy = function(keySelector, comparer) {
-        // TODO: check if keySelector is a function
-        // TODO: check if comparer is a function
+        if(!isFunction(keySelector)) {
+            throw("keySelector should be a function");
+        }
+
+        if(!isFunction(comparer)) {
+            throw("Comparer should be a function");
+        }
+
         this.__source = this.__source.map(keySelector).sort(comparer);
         return this;
     };
 
     JL.prototype.orderByDescending = function(keySelector, comparer) {
-        // TODO: check if keySelector is a function
-        // TODO: check if comparer is a function
+        if(!isFunction(keySelector)) {
+            throw("keySelector should be a function");
+        }
+        
+        if(!isFunction(comparer)) {
+            throw("Comparer should be a function");
+        }
+
         this.__source = this.__source.map(keySelector).sort(comparer).reverse();
         return this;
     };
@@ -209,7 +255,10 @@ var jL = (function() {
     };
 
     JL.prototype.select = function(predicate) {
-        // TODO: check if predicate is a function
+        if(!isFunction(predicate)) {
+            throw("Predicate should be a function");
+        }
+
         this.__source = this.__source.map(predicate);
         return this;
     };
@@ -240,7 +289,10 @@ var jL = (function() {
             return false;
         }
 
-        // TODO: check if comparer is a function
+        if(!isFunction(comparer)) {
+            throw("Comparer should be a function");
+        }
+        
         comparer = comparer || function(x, y) { return x === y; };
 
         var isEqual = this.__source.every(function(element, index) {
