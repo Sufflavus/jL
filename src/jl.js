@@ -292,7 +292,7 @@ var jL = (function() {
         if(!isFunction(comparer)) {
             throw("Comparer should be a function");
         }
-        
+
         comparer = comparer || function(x, y) { return x === y; };
 
         var isEqual = this.__source.every(function(element, index) {
@@ -309,7 +309,11 @@ var jL = (function() {
             }
             return this.__source[0];
         }
-        // TODO: check if predicate is a function
+        
+        if(!isFunction(comparer)) {
+            throw("Predicate should be a function");
+        }
+
         var filtered = this.__source.filter(predicate);
         if(filtered.length !== 1) {
             throw ("One element shoild satisfy the condition in predicate.");
@@ -333,7 +337,10 @@ var jL = (function() {
     };
 
     JL.prototype.where = function(predicate) {
-        // TODO: check if predicate is a function
+        if(!isFunction(comparer)) {
+            throw("Predicate should be a function");
+        }
+
         this.__source = this.__source.filter(predicate);
         return this;
     };
@@ -351,7 +358,9 @@ var jL = (function() {
     };
 
     JL.prototype.takeWhile = function(predicate) {
-        // TODO: check if predicate is a function
+        if(!isFunction(comparer)) {
+            throw("Predicate should be a function");
+        }
         
         var result = [];
         var length = this.__source.length;
@@ -383,7 +392,10 @@ var jL = (function() {
     };
 
     JL.prototype.skipWhile = function(predicate) {
-        // TODO: check if predicate is a function
+        if(!isFunction(comparer)) {
+            throw("Predicate should be a function");
+        }
+        
         var startIndex = this.__source.length;
         this.__source.some(function(n, index) {
             return predicate(n, index) ? false : ((startIndex = index), true);
@@ -403,7 +415,10 @@ var jL = (function() {
 
     JL.prototype.sum = function(selector) {
         if(selector) {
-            // TODO: check if selector is a function
+            if(!isFunction(selector)) {
+                throw("Selector should be a function");
+            }
+            
             return this.__source.reduce(function(sum, item) {
                 return sum + selector(item);
             }, 0); 
