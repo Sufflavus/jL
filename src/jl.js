@@ -264,7 +264,14 @@ var jL = (function() {
     };
 
     JL.prototype.selectMany = function(collectionSelector, resultSelector) {
-        // TODO: check if collectionSelector and resultSelector are functions
+        if(!isFunction(collectionSelector)) {
+            throw("collectionSelector should be a function");
+        }
+
+        if(!isFunction(resultSelector)) {
+            throw("resultSelector should be a function");
+        }
+
         this.__source = this.__source.map(function (sourceItem, index) {
             return { 
                 key: sourceItem, 
