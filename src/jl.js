@@ -471,6 +471,18 @@ var jL = (function() {
         return Object.prototype.toString.call(value) === "[object Function]";
     }
 
+    function isInteger(value) {
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger
+        return typeof value === "number" && 
+            isFinite(value) && 
+            Math.floor(value) === value;
+    }
+
+    function isFloat(value) {
+        // http://stackoverflow.com/questions/3885817/how-to-check-that-a-number-is-float-or-integer
+        return Number(value) === value && value % 1 !== 0 || isInteger(value);
+    }
+
     return {
         fromArray:  function(array) {
             // TODO: check if it's an array
