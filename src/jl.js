@@ -38,6 +38,9 @@ var jL = (function() {
         // TODO: check if all items in array are numbers
 
         var averageNum = this.__source.reduce(function(sum, number) {
+            if(!isFloat(number)) {
+                throw("All items in array should be a numbers");
+            }
             return sum + (predicate ? predicate(number) : number);
         }, 0) / this.__source.length; 
 
@@ -109,7 +112,9 @@ var jL = (function() {
     };
 
     JL.prototype.elementAt = function(index) {
-        // TODO: check if index is a number
+        if(!isInteger(index)) {
+            throw("An index should be a number");
+        }
         return this.__source[index];
     };
 
@@ -329,7 +334,10 @@ var jL = (function() {
     };
 
     JL.prototype.skip = function(count) {
-        // TODO: check if count is a number
+        if(!isInteger(count)) {
+            throw("A count should be a number");
+        }
+
         if(this.__source.length < count) {
             this.__source = [];
             return this;
@@ -353,7 +361,9 @@ var jL = (function() {
     };
 
     JL.prototype.take = function(count) {
-        // TODO: check if count is a integer
+        if(!isInteger(count)) {
+            throw("A count should be a number");
+        }
 
         if(count <= 0) {
             this.__source = [];
@@ -383,7 +393,9 @@ var jL = (function() {
     };
 
     JL.prototype.skip = function(count) {
-        // TODO: check if count is a integer
+        if(!isInteger(count)) {
+            throw("A count should be a number");
+        }
 
         if(count >= this.__source.length) {
             this.__source = [];
